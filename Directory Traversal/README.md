@@ -1,13 +1,3 @@
-# Directory Traversal
-
-> Path Traversal, also known as Directory Traversal, is a type of security vulnerability that occurs when an attacker manipulates variables that reference files with “dot-dot-slash (../)” sequences or similar constructs. This can allow the attacker to access arbitrary files and directories stored on the file system.
-
-## Summary
-
-* [Tools](#tools)
-* [Methodology](#methodology)
-    * [16 bits Unicode encoding](#16-bits-unicode-encoding)
-    * [UTF-8 Unicode encoding](#utf-8-unicode-encoding)
     * [Bypass "../" replaced by ""](#bypass--replaced-by-)
     * [Bypass "../" with ";"](#bypass--with-)
     * [Double URL encoding](#double-url-encoding)

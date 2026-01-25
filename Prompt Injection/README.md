@@ -1,9 +1,13 @@
-# Prompt Injection
+<!--
+ * [业务问题]: 提示词注入（Prompt Injection）是针对大语言模型（LLM）和 AI 应用的新型攻击手法。攻击者通过精心构造的提示词绕过安全限制、泄露系统提示、执行未经授权的操作或利用 AI 功能进行 SSRF、数据泄露、跨插件请求伪造等攻击。
+ * [实现逻辑]: 本文档全面介绍了提示词注入的攻击技术，包括强制输出、提示词泄露、XSS/SQLi 注入、间接提示词注入（通过记忆功能）、RCE 测试、越狱技术以及针对 ChatGPT、BingChat、Bard 等主流 AI 工具的实战案例和挑战平台。
+ -->
 
-> A technique where specific prompts or cues are inserted into the input data to guide the output of a machine learning model, specifically in the field of natural language processing (NLP).
+# Prompt Injection (提示词注入 / AI 注入)
 
+> 一种技术，通过在输入数据中插入特定的提示或提示词来引导机器学习模型的输出，特别是在自然语言处理（NLP）领域。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Applications](#applications)

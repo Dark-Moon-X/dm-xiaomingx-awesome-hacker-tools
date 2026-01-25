@@ -1,6 +1,13 @@
-# Insecure Randomness
+<!--
+ * [业务问题]: 不安全的随机性（Insecure Randomness）是指在安全关键场景（如 Token 生成、密码重置、会话 ID）中使用可预测的随机数生成器。攻击者通过预测随机数种子（如时间戳）或破解生成算法，可以窃取用户账户或伪造有效凭证。
+ * [实现逻辑]: 本文档详细分析了多种不安全随机源的预测方法，包括基于时间的种子（Python random）、可预测的 GUID/UUID、MongoDB ObjectId、PHP uniqid、mt_rand() 以及自定义的弱随机算法，并提供了相应的破解脚本和工具。
+ -->
 
-> Insecure randomness refers to the weaknesses associated with random number generation in computing, particularly when such randomness is used for security-critical purposes. Vulnerabilities in random number generators (RNGs) can lead to predictable outputs that can be exploited by attackers, resulting in potential data breaches or unauthorized access. 
+# Insecure Randomness (不安全的随机数)
+
+> 不安全的随机性是指与计算中随机数生成相关的弱点，特别是当这种随机性用于对安全至关重要的目的时。随机数生成器（RNG）中的漏洞可能导致可预测的输出，从而被攻击者利用，导致潜在的数据泄露或未经授权的访问。
+
+## 概要 (Summary)
 
 
 ## Summary

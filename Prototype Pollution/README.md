@@ -1,9 +1,13 @@
-# Prototype Pollution
+<!--
+ * [业务问题]: 原型链污染（Prototype Pollution）是 JavaScript 应用中的高危漏洞，攻击者通过修改 Object.prototype 影响所有继承该原型的对象，可能导致权限绕过、远程代码执行（RCE）、拒绝服务（DoS）或客户端 XSS。常见于 Node.js 服务端和现代前端框架。
+ * [实现逻辑]: 本文档全面介绍了原型链污染的检测与利用方法，包括手动测试技巧、JSON 输入污染、URL 参数污染、服务端/客户端利用场景（SSPP/CSPP）、RCE Gadgets（Kibana, EJS）以及专业扫描工具（pp-finder, PPScan）的使用指导。
+ -->
 
-> Prototype pollution is a type of vulnerability that occurs in JavaScript when properties of Object.prototype are modified. This is particularly risky because JavaScript objects are dynamic and we can add properties to them at any time. Also, almost all objects in JavaScript inherit from Object.prototype, making it a potential attack vector.
+# Prototype Pollution (原型链污染)
 
+> 原型链污染是 JavaScript 中的一种漏洞类型，当 Object.prototype 的属性被修改时就会发生。这特别危险，因为 JavaScript 对象是动态的，我们可以随时向它们添加属性。此外，JavaScript 中几乎所有对象都继承自 Object.prototype，使其成为潜在的攻击向量。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

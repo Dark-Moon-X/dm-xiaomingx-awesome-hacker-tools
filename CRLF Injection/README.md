@@ -1,11 +1,16 @@
-# Carriage Return Line Feed
+<!--
+ * [业务问题]: CRLF 注入是一种通过注入回车换行符（\r\n）操纵 HTTP 响应头的攻击手法。攻击者可以注入恶意 Cookie、绕过 XSS 防护、伪造 HTTP 响应或发起钓鱼攻击，导致会话劫持或用户信息泄露。
+ * [实现逻辑]: 本文档详细介绍了 CRLF 注入的多种利用场景，包括添加恶意 Cookie、绕过 XSS 防护、写入任意 HTML 内容以及使用 UTF-8 编码绕过过滤器等技术，并提供了完整的 Payload 示例。
+ -->
 
-> The term CRLF refers to Carriage Return (ASCII 13, \r) Line Feed (ASCII 10, \n). They're used to note the termination of a line, however, dealt with differently in today’s popular Operating Systems. For example: in Windows both a CR and LF are required to note the end of a line, whereas in Linux/UNIX a LF is only required. In the HTTP protocol, the CR-LF sequence is always used to terminate a line.
+# Carriage Return Line Feed (CRLF 注入)
 
-> A CRLF Injection attack occurs when a user manages to submit a CRLF into an application. This is most commonly done by modifying an HTTP parameter or URL.
+> CRLF 代表回车符（Carriage Return，ASCII 13, \r）和换行符（Line Feed，ASCII 10, \n）。它们用于标记行的终止，但在当今流行的操作系统中处理方式不同。例如：在 Windows 中，CR 和 LF 都需要标记行的结束，而在 Linux/UNIX 中只需要 LF。在 HTTP 协议中，CR-LF 序列总是用于终止一行。
+
+> 当用户设法将 CRLF 提交到应用程序中时，就会发生 CRLF 注入攻击。这最常见的是通过修改 HTTP 参数或 URL 来完成。
 
 
-## Summary
+## 概要 (Summary)
 
 * [Methodology](#methodology)
     * [Add a cookie](#add-a-cookie)

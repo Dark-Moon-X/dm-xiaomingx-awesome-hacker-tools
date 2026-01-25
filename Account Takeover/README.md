@@ -1,8 +1,13 @@
-# Account Takeover
+<!--
+ * [业务问题]: 账户接管（Account Takeover, ATO）是网络安全中的重大威胁，攻击者通过密码重置漏洞、Web 漏洞（XSS, CSRF, HTTP 请求走私）或弱认证机制获取用户账户的未经授权访问，导致数据泄露、财务损失或身份盗用。
+ * [实现逻辑]: 本文档系统化地整理了账户接管的多种攻击向量，包括密码重置功能缺陷（Token 泄露、Host 头投毒、IDOR、弱 Token、用户名碰撞、Unicode 规范化）以及通过 XSS、HTTP 请求走私、CSRF 和 JWT 漏洞实现的账户接管技术，并提供了完整的利用步骤和真实案例。
+ -->
 
-> Account Takeover (ATO) is a significant threat in the cybersecurity landscape, involving unauthorized access to users' accounts through various attack vectors.
+# Account Takeover (账户接管)
 
-## Summary
+> 账户接管（ATO）是网络安全领域的重大威胁，涉及通过各种攻击向量对用户账户的未经授权访问。
+
+## 概要 (Summary)
 
 * [Password Reset Feature](#password-reset-feature)
     * [Password Reset Token Leak via Referrer](#password-reset-token-leak-via-referrer)

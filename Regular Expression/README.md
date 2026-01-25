@@ -1,6 +1,13 @@
-# Regular Expression
+<!--
+ * [业务问题]: 正则表达式拒绝服务（ReDoS）是一种利用正则表达式引擎回溯机制的 DoS 攻击。攻击者通过构造特定的恶意输入，使服务器在处理正则表达式时通过极端的 CPU 消耗导致服务无响应或崩溃。
+ * [实现逻辑]: 本文档解释了 ReDoS 的成因（恶意正则表达式模式、回溯限制），提供了识别恶意 Regex 的方法（重复分组、重叠），并介绍了检测工具（redos-detector, regexploit）和回溯限制配置。
+ -->
 
-> Regular Expression Denial of Service (ReDoS) is a type of attack that exploits the fact that certain regular expressions can take an extremely long time to process, causing applications or services to become unresponsive or crash. 
+# Regular Expression (正则表达式拒绝服务 / ReDoS)
+
+> 正则表达式拒绝服务（ReDoS）是一种攻击类型，它利用了某些正则表达式处理时间极长的事实，导致应用程序或服务变得无响应或崩溃。
+
+## 概要 (Summary)
 
 
 ## Summary

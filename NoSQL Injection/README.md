@@ -1,9 +1,13 @@
-# NoSQL Injection
+<!--
+ * [业务问题]: NoSQL 注入是针对 MongoDB、CouchDB 等 NoSQL 数据库的攻击手法。攻击者通过操纵查询参数（如 $ne, $gt, $regex）绕过身份验证、提取敏感数据或执行未经授权的操作，导致数据泄露或账户沦陷。
+ * [实现逻辑]: 本文档系统化地介绍了 NoSQL 注入的多种利用场景，包括身份验证绕过（$ne, $gt）、数据长度提取、基于 $regex 的盲注技术，并提供了针对 MongoDB 的完整 Payload 列表和 Python/Ruby 自动化利用脚本。
+ -->
 
-> NoSQL databases provide looser consistency restrictions than traditional SQL databases. By requiring fewer relational constraints and consistency checks, NoSQL databases often offer performance and scaling benefits. Yet these databases are still potentially vulnerable to injection attacks, even if they aren't using the traditional SQL syntax.
+# NoSQL Injection (NoSQL 注入)
 
+> NoSQL 数据库提供了比传统 SQL 数据库更宽松的一致性限制。通过需要更少的关系约束和一致性检查，NoSQL 数据库通常提供性能和扩展优势。然而，这些数据库仍然可能容易受到注入攻击，即使它们没有使用传统的 SQL 语法。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

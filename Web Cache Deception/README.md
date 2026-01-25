@@ -1,6 +1,13 @@
-# Web Cache Deception
+<!--
+ * [业务问题]: Web 缓存欺骗（Web Cache Deception, WCD）利用 Web 服务器和缓存代理对文件类型扩展名解析的不一致性。攻击者诱导用户访问伪造的 URL（如 /home.php/bad.css），导致包含敏感用户信息的页面被缓存服务器作为静态资源缓存，随后攻击者可访问缓存窃取数据。
+ * [实现逻辑]: 本文档详细解释了 WCD 的攻击原理，提供了针对 PayPal 和 OpenAI 的真实案例，介绍了 CloudFlare 的缓存机制及绕过技巧，以及如何利用缓存中毒（Cache Poisoning）来利用未作为键控的输入（Un-keyed Input）。
+ -->
 
-> Web Cache Deception (WCD) is a security vulnerability that occurs when a web server or caching proxy misinterprets a client's request for a web resource and subsequently serves a different resource, which may often be more sensitive or private, after caching it.
+# Web Cache Deception (Web 缓存欺骗)
+
+> Web 缓存欺骗（WCD）是一种安全漏洞，当 Web 服务器 or 缓存代理误解客户端对 Web 资源的请求，并随后在缓存后提供不同的资源（通常是更敏感或私人的资源）时就会发生。
+
+## 概要 (Summary)
 
 
 ## Summary

@@ -1,6 +1,13 @@
-# Tabnabbing
+<!--
+ * [业务问题]: 标签页劫持（Tabnabbing / Reverse Tabnabbing）是一种网络钓鱼攻击，攻击者利用新标签页打开链接的特性（target="_blank"），通过 window.opener 对象篡改父标签页的地址，将其重定向到钓鱼页面以窃取用户凭证。
+ * [实现逻辑]: 本文档介绍了 Tabnabbing 的原理、检测方法（检查 rel="noopener" 缺失）以及利用步骤（window.opener.location 重定向），并提供了检测工具链接。
+ -->
 
-> Reverse tabnabbing is an attack where a page linked from the target page is able to rewrite that page, for example to replace it with a phishing site. As the user was originally on the correct page they are less likely to notice that it has been changed to a phishing site, especially if the site looks the same as the target. If the user authenticates to this new page then their credentials (or other sensitive data) are sent to the phishing site rather than the legitimate one.
+# Tabnabbing (标签页劫持 / 反向标签页劫持)
+
+> 反向标签页劫持（Reverse Tabnabbing）是一种攻击，从目标页面链接出的页面能够重写该页面，例如将其替换为钓鱼网站。由于用户最初是在正确的页面上，他们不太可能注意到它已被更改为钓鱼网站，特别是如果该网站看起来与目标网站相同。如果用户在这个新页面上进行身份验证，那么他们的凭据（或其他敏感数据）将被发送到钓鱼网站，而不是合法网站。
+
+## 概要 (Summary)
 
 
 ## Summary

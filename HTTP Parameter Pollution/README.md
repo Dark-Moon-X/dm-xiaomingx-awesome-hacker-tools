@@ -1,8 +1,13 @@
-# HTTP Parameter Pollution
+<!--
+ * [业务问题]: HTTP 参数污染（HPP）是一种 Web 攻击规避技术，攻击者通过在同一参数名称的多个实例之间分割攻击向量（?param1=value&param1=value）来绕过基于模式的安全机制（WAF）、操纵 Web 逻辑或检索隐藏信息。
+ * [实现逻辑]: 本文档详细介绍了 HPP 攻击的原理和不同 Web 技术对重复参数的解析行为差异表（ASP.NET 读取所有、PHP 读取最后一个、JSP 读取第一个等），展示了如何利用这种差异绕过 WAF 并执行注入攻击。
+ -->
 
-> HTTP Parameter Pollution (HPP) is a Web attack evasion technique that allows an attacker to craft a HTTP request in order to manipulate web logics or retrieve hidden information. This evasion technique is based on splitting an attack vector between multiple instances of a parameter with the same name (?param1=value&param1=value). As there is no formal way of parsing HTTP parameters, individual web technologies have their own unique way of parsing and reading URL parameters with the same name. Some taking the first occurrence, some taking the last occurrence, and some reading it as an array. This behavior is abused by the attacker in order to bypass pattern-based security mechanisms. 
+# HTTP Parameter Pollution (HTTP 参数污染)
 
-## Summary
+> HTTP 参数污染（HPP）是一种 Web 攻击规避技术，允许攻击者精心构造 HTTP 请求以操纵 Web 逻辑或检索隐藏信息。这种规避技术基于在具有相同名称的参数的多个实例之间分割攻击向量（?param1=value&param1=value）。由于没有正式的 HTTP 参数解析方式，各个 Web 技术都有自己独特的解析和读取同名 URL 参数的方式。有些读取第一次出现，有些读取最后一次出现，有些将其读取为数组。攻击者滥用这种行为以绕过基于模式的安全机制。
+
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [How to test](#how-to-test)

@@ -1,9 +1,13 @@
-# Denial of Service
+<!--
+ * [业务问题]: 拒绝服务（DoS）攻击旨在通过大量非法请求或利用软件漏洞使服务不可用，导致业务中断、用户无法访问或系统崩溃。常见场景包括账户锁定、文件系统耗尽、内存耗尽（XML Bomb、GraphQL 深度嵌套）等。
+ * [实现逻辑]: 本文档详细介绍了多种 DoS 攻击技术，包括锁定客户账户、文件系统限制利用（达到 inode 上限）、内存耗尽攻击（Billion Laughs、GraphQL 深度嵌套、ReDoS、图片处理）等方法，并强调了测试时的注意事项（通常超出测试范围）。
+ -->
 
-> A Denial of Service (DoS) attack aims to make a service unavailable by overwhelming it with a flood of illegitimate requests or exploiting vulnerabilities in the target's software to crash or degrade performance. In a Distributed Denial of Service (DDoS), attackers use multiple sources (often compromised machines) to perform the attack simultaneously.
+# Denial of Service (拒绝服务攻击 / DoS)
 
+> 拒绝服务（DoS）攻击旨在通过大量非法请求淹没服务或利用目标软件中的漏洞使其崩溃或性能下降，从而使服务不可用。在分布式拒绝服务（DDoS）中，攻击者使用多个来源（通常是被入侵的机器）同时执行攻击。
 
-## Summary
+## 概要 (Summary)
 
 * [Methodology](#methodology)
     * [Locking Customer Accounts](#locking-customer-accounts)

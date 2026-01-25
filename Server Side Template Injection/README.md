@@ -1,9 +1,13 @@
-# Server Side Template Injection
+<!--
+ * [业务问题]: 服务端模板注入（SSTI）是一种高危漏洞，攻击者通过在模板引擎中注入恶意代码，可以直接在服务器上执行任意命令，导致完全的系统沦陷、数据泄露或服务器接管。此漏洞常见于 PDF 生成、邮件模板和动态页面渲染场景。
+ * [实现逻辑]: 本文档系统化地介绍了 SSTI 漏洞的检测与利用流程，包括识别漏洞输入点、注入模板语法、枚举模板引擎（Jinja2, Twig, Freemarker 等）以及提升为代码执行的完整攻击链，并提供了专业扫描工具（TInjA, tplmap, SSTImap）的使用方法。
+ -->
 
-> Template injection allows an attacker to include template code into an existing (or not) template. A template engine makes designing HTML pages easier by using static template files which at runtime replaces variables/placeholders with actual values in the HTML pages
+# Server Side Template Injection (SSTI - 服务端模板注入)
 
+> 模板注入允许攻击者将模板代码包含到现有（或不存在）的模板中。模板引擎通过使用静态模板文件使设计 HTML 页面变得更加容易，这些文件在运行时会将 HTML 页面中的变量/占位符替换为实际值。
 
-## Summary
+## 概要 (Summary)
 
 - [Tools](#tools)
 - [Methodology](#methodology)
@@ -38,15 +42,15 @@
   ```
 
 
-## Methodology
+## 方法论 (Methodology)
 
-### Identify the Vulnerable Input Field
+### 识别漏洞输入字段 (Identify the Vulnerable Input Field)
 
-The attacker first locates an input field, URL parameter, or any user-controllable part of the application that is passed into a server-side template without proper sanitization or escaping. 
+攻击者首先定位一个输入字段、URL 参数或应用程序的任何用户可控制部分，该部分在没有适当清理或转义的情况下被传递到服务端模板中。
 
-For example, the attacker might identify a web form, search bar, or template preview functionality that seems to return results based on dynamic user input.
+例如，攻击者可能会识别一个 Web 表单、搜索栏或模板预览功能，这些功能似乎根据动态用户输入返回结果。
 
-**TIP**: Generated PDF files, invoices and emails usually use a template. 
+**提示**: 生成的 PDF 文件、发票和电子邮件通常使用模板。
 
 
 ### Inject Template Syntax

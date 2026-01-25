@@ -1,6 +1,13 @@
-# Zip Slip
+<!--
+ * [业务问题]: Zip Slip 是一种在解压文档时发生的目录遍历漏洞。攻击者构造包含目录遍历路径（如 ../../shell.php）的特制压缩包，当应用解压时，恶意文件会被写入到预期目录之外（如 Web 根目录），导致远程代码执行。
+ * [实现逻辑]: 本文档介绍了 Zip Slip 的检测方法（上传 ZIP 功能）、基本利用方法（使用 evilarc 生成恶意压缩包、创建符号链接），并提供了相关工具链接。
+ -->
 
-> The vulnerability is exploited using a specially crafted archive that holds directory traversal filenames (e.g. ../../shell.php). The Zip Slip vulnerability can affect numerous archive formats, including tar, jar, war, cpio, apk, rar and 7z. The attacker can then overwrite executable files and either invoke them remotely or wait for the system or user to call them, thus achieving remote command execution on the victim’s machine.
+# Zip Slip (压缩包目录遍历攻击)
+
+> 该漏洞是通过使用包含目录遍历文件名（例如 ../../shell.php）的特制存档来利用的。Zip Slip 漏洞可以影响许多存档格式，包括 tar、jar、war、cpio、apk、rar 和 7z。攻击者随后可以覆盖可执行文件，并远程调用它们或等待系统或用户调用它们，从而在受害者的机器上实现远程命令执行。
+
+## 概要 (Summary)
 
 ## Summary
 

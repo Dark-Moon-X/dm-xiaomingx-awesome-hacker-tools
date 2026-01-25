@@ -1,6 +1,13 @@
-# Type Juggling
+<!--
+ * [业务问题]: PHP 类型混淆（Type Juggling）漏洞源于 PHP 的弱类型比较（==）机制。攻击者利用魔术哈希（Magic Hashes，如 0e 开头）或松散比较特性，可以绕过身份验证、密码验证或签名检查。
+ * [实现逻辑]: 本文档详细对比了松散比较（==）和严格比较（===）的差异，列出了大量"真值"语句表和魔术哈希列表（MD5, SHA1 等），并展示了通过暴力破解时间戳来构造魔术哈希以绕过 HMAC 验证的实战案例。
+ -->
 
-> PHP is a loosely typed language, which means it tries to predict the programmer's intent and automatically converts variables to different types whenever it seems necessary. For example, a string containing only numbers can be treated as an integer or a float. However, this automatic conversion (or type juggling) can lead to unexpected results, especially when comparing variables using the '==' operator, which only checks for value equality (loose comparison), not type and value equality (strict comparison).
+# Type Juggling (PHP 类型混淆)
+
+> PHP 是一种弱类型语言，这意味着它试图预测程序员的意图，并在看似必要时自动将变量转换为不同的类型。例如，仅包含数字的字符串可能被视为整数或浮点数。然而，这种自动转换（或类型混淆）可能导致意外结果，特别是在使用 '==' 运算符比较变量时，该运算符仅检查值相等（松散比较），而不检查类型和值相等（严格比较）。
+
+## 概要 (Summary)
 
 
 ## Summary

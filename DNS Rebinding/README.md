@@ -1,8 +1,13 @@
-# DNS Rebinding
+<!--
+ * [业务问题]: DNS 重绑定（DNS Rebinding）通过动态改变攻击者控制的域名的 IP 地址，将其指向目标应用的 IP，从而绕过浏览器的同源策略（SOP），允许攻击者读取内部应用的响应、窃取敏感数据或执行未经授权的操作。
+ * [实现逻辑]: 本文档详细介绍了 DNS 重绑定攻击的完整流程，包括使用 Singularity 框架进行自动化攻击、绕过 DNS 保护的多种技术（0.0.0.0、CNAME、localhost）以及如何检测服务是否易受攻击的方法。
+ -->
 
-> DNS rebinding changes the IP address of an attacker controlled machine name to the IP address of a target application, bypassing the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) and thus allowing the browser to make arbitrary requests to the target application and read their responses.
+# DNS Rebinding (DNS 重绑定攻击)
 
-## Summary
+> DNS 重绑定通过将攻击者控制的机器名称的 IP 地址更改为目标应用程序的 IP 地址，绕过[同源策略](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)，从而允许浏览器向目标应用程序发起任意请求并读取其响应。
+
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

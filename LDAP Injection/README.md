@@ -1,9 +1,13 @@
-# LDAP Injection
+<!--
+ * [业务问题]: LDAP 注入是针对基于 LDAP 目录服务的 Web 应用的攻击手法。攻击者通过注入特殊字符和逻辑运算符修改 LDAP 查询语句，可以绕过身份验证、提取敏感用户信息或获取未经授权的目录访问权限。
+ * [实现逻辑]: 本文档详细介绍了 LDAP 注入的多种 Payload 形式、盲注利用技术（通过通配符逐位猜解密码）、默认属性列表以及 userPassword 属性的特殊利用方法，并提供了 Python 和 Ruby 自动化扫描脚本。
+ -->
 
-> LDAP Injection is an attack used to exploit web based applications that construct LDAP statements based on user input. When an application fails to properly sanitize user input, it's possible to modify LDAP statements using a local proxy.
+# LDAP Injection (LDAP 注入)
 
+> LDAP 注入是一种用于利用基于用户输入构建 LDAP 语句的 Web 应用程序的攻击。当应用程序无法正确清理用户输入时，就可以使用本地代理修改 LDAP 语句。
 
-## Summary
+## 概要 (Summary)
 
 * [Methodology](#methodology)
 * [Payloads](#payloads)

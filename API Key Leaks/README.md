@@ -1,8 +1,13 @@
-# API Key and Token Leaks
+<!--
+ * [业务问题]: API 密钥和令牌泄露是现代云原生应用中极其严重的安全隐患。攻击者利用泄露的密钥可直接获取云资源控制权、访问私有数据库或劫持第三方服务（如 Telegram, AWS, GCP），导致严重的财务损失和数据泄露。
+ * [实现逻辑]: 本文档整理了 API 密钥泄露的常见原因（硬编码、Docker 镜像、公开仓库等），提供了主流扫描工具（TruffleHog, Trivy 等）的使用方法，并汇总了针对不同服务（AWS, Telegram 等）的密钥有效性验证（Keyhacks）实战技巧。
+ -->
 
-> API keys and tokens are forms of authentication commonly used to manage permissions and access to both public and private services. Leaking these sensitive pieces of data can lead to unauthorized access, compromised security, and potential data breaches.
+# API Key and Token Leaks (API 密钥与令牌泄露)
 
-## Summary
+> API 密钥和令牌是用于管理公共和私有服务访问权限的常见身份验证形式。泄露这些敏感数据可能导致未经授权的访问、安全沦陷以及潜在的数据泄露风险。
+
+## 概要 (Summary)
 
 - [Tools](#tools)
 - [Methodology](#exploit)
@@ -26,10 +31,10 @@
     ```
 
 
-## Methodology
+## 方法论 (Methodology)
 
-* **API Keys**: Unique identifiers used to authenticate requests associated with your project or application.
-* **Tokens**: Security tokens (like OAuth tokens) that grant access to protected resources.
+* **API 密钥 (API Keys)**: 用于验证与您的项目或应用程序关联的请求的唯一标识符。
+* **令牌 (Tokens)**: 授予对受保护资源访问权限的安全令牌（如 OAuth 令牌）。
      
 ### Common Causes of Leaks
 
@@ -62,7 +67,7 @@
 * **Configuration Files**: Including keys and tokens in publicly accessible configuration files (e.g., .env files, config.json, settings.py, or .aws/credentials.).
 
 
-### Validate The API Key
+### 验证 API 密钥 (Validate The API Key)
 
 If assistance is needed in identifying the service that generated the token, [mazen160/secrets-patterns-db](https://github.com/mazen160/secrets-patterns-db) can be consulted. It is the largest open-source database for detecting secrets, API keys, passwords, tokens, and more. This database contains regex patterns for various secrets.
 

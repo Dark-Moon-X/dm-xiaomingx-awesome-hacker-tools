@@ -1,6 +1,13 @@
-# Insecure Source Code Management
+<!--
+ * [业务问题]: 不安全的源代码管理（Insecure SCM）指将版本控制系统的元数据目录（如 .git, .svn）暴露在生产环境中。攻击者可下载完整源代码、历史提交记录、敏感配置和硬编码凭证，深入了解应用逻辑以发现更多漏洞。
+ * [实现逻辑]: 本文档介绍了如何发现泄露的 SCM 目录（.git, .svn, .hg, .bzr），如何绕过访问限制（如 403 Forbidden），以及利用自动化工具恢复源代码的方法。
+ -->
 
-> Insecure Source Code Management (SCM) can lead to several critical vulnerabilities in web applications and services. Developers often rely on SCM systems like Git and Subversion (SVN) to manage their source code versions. However, poor security practices, such as leaving .git and .svn folders in production environments exposed to the internet, can pose significant risks. 
+# Insecure Source Code Management (不安全的源代码管理)
+
+> 不安全的源代码管理（SCM）可能导致 Web 应用程序和服务中出现严重的漏洞。开发人员通常依赖 Git 和 Subversion（SVN）等 SCM 系统来管理其源代码版本。然而，糟糕的安全实践，例如将 .git 和 .svn 文件夹暴露在面向互联网的生产环境中，可能会带来重大风险。
+
+## 概要 (Summary)
 
 
 ## Summary

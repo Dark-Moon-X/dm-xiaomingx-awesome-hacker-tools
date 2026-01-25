@@ -1,9 +1,13 @@
-# Race Condition
+<!--
+ * [业务问题]: 竞态条件（Race Condition）漏洞允许攻击者通过并发请求利用时序依赖性，绕过限额控制（多次使用礼品卡、多次投票）、绕过速率限制（暴力破解、2FA 绕过）或执行未经授权的操作，导致业务逻辑破坏或财务损失。
+ * [实现逻辑]: 本文档详细介绍了竞态条件的检测与利用技术，包括 HTTP/1.1 最后字节同步、HTTP/2 单包攻击（Single-packet attack）以及 Turbo Intruder 工具的高级使用方法，并提供了完整的 Python 脚本模板和真实案例（Instagram 密码重置、GitLab CVE-2022-4037）。
+ -->
 
-> Race conditions may occur when a process is critically or unexpectedly dependent on the sequence or timings of other events. In a web application environment, where multiple requests can be processed at a given time, developers may leave concurrency to be handled by the framework, server, or programming language.
+# Race Condition (竞态条件)
 
+> 当一个进程关键性地或意外地依赖于其他事件的序列或时序时，可能会发生竞态条件。在 Web 应用程序环境中，可以在给定时间处理多个请求，开发人员可能会将并发处理留给框架、服务器或编程语言来处理。
 
-## Summary
+## 概要 (Summary)
 
 - [Tools](#tools)
 - [Methodology](#methodology)

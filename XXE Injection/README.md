@@ -1,9 +1,13 @@
-# XML External Entity
+<!--
+ * [业务问题]: XML 外部实体（XXE）攻击是一种针对解析 XML 输入的应用程序的安全漏洞。攻击者通过定义外部实体，诱导 XML 解析器读取服务器本地文件（如 /etc/passwd）、发起内网探测（SSRF）或通过拒绝服务攻击（Billion Laughs）导致服务器停机。
+ * [实现逻辑]: 本文档系统化地介绍了 XXE 漏洞的检测与利用方法，包括经典 XXE、基于 Base64 编码的绕过、PHP 伪协议利用、带外数据提取（OOB）、基于错误的 XXE 以及针对特殊文件格式（SVG, DOCX, XLSX）的进阶攻击向量。
+ -->
 
-> An XML External Entity attack is a type of attack against an application that parses XML input and allows XML entities. XML entities can be used to tell the XML parser to fetch specific content on the server.
+# XML External Entity (XXE Injection - XML 外部实体注入)
 
+> XML 外部实体攻击（XXE）是一种针对解析 XML 输入并允许 XML 实体的应用程序的攻击类型。XML 实体可用于指示 XML 解析器获取服务器上的特定内容。
 
-## Summary
+## 概要 (Summary)
 
 - [Tools](#tools)
 - [Detect The Vulnerability](#detect-the-vulnerability)
@@ -49,13 +53,13 @@
 - [whitel1st/docem](https://github.com/whitel1st/docem) - Utility to embed XXE and XSS payloads in docx,odt,pptx,etc
 
 
-## Detect The Vulnerability
+## 漏洞检测 (Detect The Vulnerability)
 
-**Internal Entity**: If an entity is declared within a DTD it is called an internal entity.
-Syntax: `<!ENTITY entity_name "entity_value">`
+**内部实体 (Internal Entity)**: 如果实体在 DTD 内声明，则称为内部实体。
+语法: `<!ENTITY entity_name "entity_value">`
 
-**External Entity**: If an entity is declared outside a DTD it is called an external entity. Identified by `SYSTEM`.
-Syntax: `<!ENTITY entity_name SYSTEM "entity_value">`
+**外部实体 (External Entity)**: 如果实体在 DTD 之外声明，则称为外部实体。通过 `SYSTEM` 关键字标识。
+语法: `<!ENTITY entity_name SYSTEM "entity_value">`
 
 Basic entity test, when the XML parser parses the external entities the result should contain "John" in `firstName` and "Doe" in `lastName`. Entities are defined inside the `DOCTYPE` element.
 

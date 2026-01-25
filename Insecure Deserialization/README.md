@@ -1,9 +1,13 @@
-# Insecure Deserialization
+<!--
+ * [业务问题]: 不安全的反序列化是一种严重的安全风险，攻击者通过操纵序列化后的数据流，在应用程序重新构建对象时触发非预期的逻辑（如远程代码执行 RCE）。
+ * [实现逻辑]: 本文档系统化地梳理了主流编程语言（Java, PHP, Python, Ruby, .NET 等）中反序列化漏洞的识别特征（Header）、利用工具（ysoserial, phpggc 等）及 POP 链构建思路。
+ -->
 
-> Serialization is the process of turning some object into a data format that can be restored later. People often serialize objects in order to save them to storage, or to send as part of communications. Deserialization is the reverse of that process -- taking data structured from some format, and rebuilding it into an object - OWASP
+# Insecure Deserialization (不安全的反序列化)
 
+> 序列化是将对象转换为可以稍后恢复的数据格式的过程。人们通常为了将对象保存到存储器中，或作为通信的一部分进行发送而对对象进行序列化。反序列化则是该过程的逆过程 —— 从某种格式的结构化数据中提取信息，并将其重新构建为对象。 —— OWASP
 
-## Summary
+## 概要 (Summary)
 
 * [Deserialization Identifier](#deserialization-identifier)
 * [POP Gadgets](#pop-gadgets)
@@ -30,11 +34,11 @@ Check the following sub-sections, located in other chapters :
 | PHP Serialized  | 4F 3A        | Tz              |
 
 
-## POP Gadgets
+## POP 链 (POP Gadgets)
 
-> A POP (Property Oriented Programming) gadget is a piece of code implemented by an application's class, that can be called during the deserialization process.
+> POP（面向属性编程，Property Oriented Programming）Gadget 是应用程序类中实现的一段代码，可以在反序列化过程中被调用。
 
-POP gadgets characteristics:
+POP Gadgets 的特点：
 * Can be serialized
 * Has public/accessible properties
 * Implements specific vulnerable methods

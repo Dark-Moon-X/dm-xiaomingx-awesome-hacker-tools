@@ -1,6 +1,13 @@
-# LaTeX Injection
+<!--
+ * [业务问题]: LaTeX 注入发生在 Web 应用将用户输入直接嵌入到 LaTeX 编译过程中时。由于 LaTeX 强大的脚本能力，攻击者可以利用它读取服务器上的任意文件（可能是配置文件或源代码）、写入恶意文件甚至执行系统命令。
+ * [实现逻辑]: 本文档详细介绍了 LaTeX 注入的多种攻击向量，包括使用 \input 和 \openin 读取文件、使用 \newwrite 写入文件、使用 \write18 执行系统命令以及利用 LaTeX 生成 XSS Payload。
+ -->
 
-> LaTeX Injection is a type of injection attack where malicious content is injected into LaTeX documents. LaTeX is widely used for document preparation and typesetting, particularly in academia, for producing high-quality scientific and mathematical documents. Due to its powerful scripting capabilities, LaTeX can be exploited by attackers to execute arbitrary commands if proper safeguards are not in place. 
+# LaTeX Injection (LaTeX 注入)
+
+> LaTeX 注入是一种注入攻击类型，其中恶意内容被注入到 LaTeX 文档中。LaTeX 广泛用于文档准备和排版，特别是在学术界，用于制作高质量的科学和数学文档。由于其强大的脚本功能，如果没有适当的安全措施，攻击者可以利用 LaTeX 来执行任意命令。
+
+## 概要 (Summary)
 
 
 ## Summary

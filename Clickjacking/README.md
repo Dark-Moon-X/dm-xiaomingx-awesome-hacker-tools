@@ -1,8 +1,13 @@
-# Clickjacking
+<!--
+ * [业务问题]: 点击劫持（Clickjacking）是一种利用 UI 覆盖和透明 iframe 诱导用户在不知情的情况下执行非预期操作的攻击手法。攻击者可以诱使用户删除账户、转账、修改密码或授权第三方应用，从而导致账户沦陷或数据泄露。
+ * [实现逻辑]: 本文档详细介绍了点击劫持的多种实现手法，包括 UI 重绘（UI Redressing）、不可见框架（Invisible Frames）和按钮/表单劫持（Button/Form Hijacking），并提供了防御措施（X-Frame-Options, CSP）以及针对浏览器 XSS 过滤器的绕过技术。
+ -->
 
-> Clickjacking is a type of web security vulnerability where a malicious website tricks a user into clicking on something different from what the user perceives, potentially causing the user to perform unintended actions without their knowledge or consent. Users are tricked into performing all sorts of unintended actions as such as typing in the password, clicking on ‘Delete my account' button, liking a post, deleting a post, commenting on a blog. In other words all the actions that a normal user can do on a legitimate website can be done using clickjacking.
+# Clickjacking (点击劫持)
 
-## Summary
+> 点击劫持是一种 Web 安全漏洞，恶意网站诱骗用户点击与用户感知不同的内容，可能导致用户在不知情或未经同意的情况下执行非预期操作。用户被诱骗执行各种非预期操作，例如输入密码、点击“删除我的账户”按钮、点赞帖子、删除帖子、在博客上评论等。换句话说，普通用户在合法网站上可以执行的所有操作都可以通过点击劫持完成。
+
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)
@@ -29,13 +34,11 @@
 * [machine1337/clickjack](https://github.com/machine1337/clickjack)
 
 
-## Methodology
+## 方法论 (Methodology)
 
-### UI Redressing
+### UI 重绘 (UI Redressing)
 
-UI Redressing is a Clickjacking technique where an attacker overlays a transparent UI element on top of a legitimate website or application. 
-The transparent UI element contains malicious content or actions that are visually hidden from the user. By manipulating the transparency and positioning of elements, 
-the attacker can trick the user into interacting with the hidden content, believing they are interacting with the visible interface.
+UI 重绘是一种点击劫持技术，政击者在合法网站或应用程序上覆盖一个透明的 UI 元素。该透明 UI 元素包含对用户视觉隐藏的恶意内容或操作。通过操纵元素的透明度和位置，攻击者可以诱骗用户与隐藏内容交互，而用户认为他们正在与可见界面交互。
 
 * **How UI Redressing Works:**
     * Overlaying Transparent Element: The attacker creates a transparent HTML element (usually a `<div>`) that covers the entire visible area of a legitimate website. This element is made transparent using CSS properties like `opacity: 0;`.

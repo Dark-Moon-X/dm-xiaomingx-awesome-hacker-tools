@@ -1,9 +1,13 @@
-# Google Web Toolkit
+<!--
+ * [业务问题]: Google Web Toolkit (GWT) 应用程序的安全测试需要特殊的工具和方法。GWT 将 Java 代码编译为 JavaScript，其 RPC 通信机制可能存在方法枚举、参数注入或反序列化漏洞，导致未经授权的功能访问或远程代码执行。
+ * [实现逻辑]: 本文档介绍了针对 GWT 应用的专业测试方法，包括使用 GWTMap 工具枚举远程方法、生成 RPC Payload、自动化探测以及通过 bootstrap 文件备份代码的完整流程。
+ -->
 
-> Google Web Toolkit (GWT), also known as GWT Web Toolkit, is an open-source set of tools that allows web developers to create and maintain JavaScript front-end applications using Java. It was originally developed by Google and had its initial release on May 16, 2006.
+# Google Web Toolkit (GWT 安全测试)
 
+> Google Web Toolkit (GWT)，也称为 GWT Web Toolkit，是一个开源工具集，允许 Web 开发人员使用 Java 创建和维护 JavaScript 前端应用程序。它最初由 Google 开发，于 2006 年 5 月 16 日首次发布。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

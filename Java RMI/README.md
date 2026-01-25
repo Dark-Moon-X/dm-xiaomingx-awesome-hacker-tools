@@ -1,6 +1,13 @@
-# Java RMI
+<!--
+ * [业务问题]: Java RMI（远程方法调用）服务如果配置不当，允许远程加载类或未授权调用方法，可能导致严重的远程代码执行（RCE）漏洞。攻击者通过构造恶意的序列化对象或利用 JMX 服务加载远程 MBean，可完全控制目标服务器。
+ * [实现逻辑]: 本文档介绍了 Java RMI 服务的探测方法（nmap, rmg），以及多种 RCE 利用技术，包括使用 beanshooter 枚举和攻击 JMX、使用 sjet/mjet 加载恶意 MLet、以及利用 Metasploit 模块进行自动化攻击。
+ -->
 
-> Java RMI (Remote Method Invocation) is a Java API that allows an object running in one JVM (Java Virtual Machine) to invoke methods on an object running in another JVM, even if they're on different physical machines. RMI provides a mechanism for Java-based distributed computing.
+# Java RMI (Java 远程方法调用)
+
+> Java RMI（远程方法调用）是一个 Java API，允许在一个 JVM（Java 虚拟机）中运行的对象调用在另一个 JVM 中运行的对象的方法，即使它们位于不同的物理机器上。RMI 为基于 Java 的分布式计算提供了机制。
+
+## 概要 (Summary)
 
 
 ## Summary

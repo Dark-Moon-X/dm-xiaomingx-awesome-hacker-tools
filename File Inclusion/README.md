@@ -1,10 +1,15 @@
-# File Inclusion
+<!--
+ * [业务问题]: 文件包含漏洞（File Inclusion）是 Web 应用（尤其是 PHP 应用）中极其核心的风险点。攻击者通过操纵包含路径，可以读取服务器敏感配置文件（LFI）或直接远程执行恶意代码（RFI/RCE），导致应用环境被彻底接管。
+ * [实现逻辑]: 本文档系统化地梳理了本地文件包含（LFI）和远程文件包含（RFI）的利用链，涵盖了多种 PHP 伪协议（Wrapper）利用（如 php://filter 读源码、phar:// 反序列化、data:// 注入等），并详细介绍了通过日志投毒、Session 包含、proc 文件系统等手段将包含漏洞提升为远程代码执行（RCE）的进阶实战技巧。
+ -->
 
-> A File Inclusion Vulnerability refers to a type of security vulnerability in web applications, particularly prevalent in applications developed in PHP, where an attacker can include a file, usually exploiting a lack of proper input/output sanitization. This vulnerability can lead to a range of malicious activities, including code execution, data theft, and website defacement.
+# File Inclusion (文件包含漏洞)
 
-**File Inclusion Vulnerability** should be differentiated from **Path Traversal**. The Path Traversal vulnerability allows an attacker to access a file, usually exploiting a "reading" mechanism implemented in the target application, when the File Inclusion will lead to the execution of arbitrary code.
+> 文件包含漏洞是指 Web 应用程序（尤其是使用 PHP 开发的应用）中的一种安全漏洞。由于应用程序缺乏对输入/输出的妥善清理，攻击者可以包含一个文件。此漏洞可能导致一系列恶意活动，包括代码执行、数据窃取和网站篡改。
 
-## Summary
+**文件包含漏洞**应与**目录遍历（Path Traversal）**区别开来。目录遍历允许攻击者访问文件（通常利用目标应用中的“读取”机制），而文件包含则会直接导致任意代码的执行。
+
+## 概要 (Summary)
 
 - [Tools](#tools)
 - [Local File Inclusion](#local-file-inclusion)
@@ -54,9 +59,9 @@
 * [hansmach1ne/LFImap](https://github.com/hansmach1ne/LFImap) - Local File Inclusion discovery and exploitation tool
 
 
-## Local File Inclusion
+## 本地文件包含 (Local File Inclusion - LFI)
 
-Consider a PHP script that includes a file based on user input. If proper sanitization is not in place, an attacker could manipulate the `page` parameter to include local or remote files, leading to unauthorized access or code execution.
+考虑一个基于用户输入包含文件的 PHP 脚本。如果没有妥善的清理机制，攻击者可以操纵 `page` 参数来包含本地或远程文件，从而导致未经授权的访问或代码执行。
 
 ```php
 <?php

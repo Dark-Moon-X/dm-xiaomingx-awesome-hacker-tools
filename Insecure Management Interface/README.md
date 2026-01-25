@@ -1,11 +1,15 @@
-# Insecure Management Interface
+<!--
+ * [业务问题]: 不安全的管理接口（Insecure Management Interface）是指用于管理服务器、应用或数据库的管理后台缺乏足够的安全保护。攻击者利用默认凭证、弱认证或未授权访问漏洞，可直接控制关键系统，导致数据泄露或服务中断。
+ * [实现逻辑]: 本文档重点介绍了 Spring Boot Actuator 的安全风险，特别是暴露的 /env 端点如何被利用进行远程代码执行（通过 SnakeYAML 反序列化），并提供了详细的利用步骤和 Payload 生成方法。
+ -->
 
-> Insecure Management Interface refers to vulnerabilities in administrative interfaces used for managing servers, applications, databases, or network devices. These interfaces often control sensitive settings and can have powerful access to system configurations, making them prime targets for attackers.
+# Insecure Management Interface (不安全的管理接口)
 
-> Insecure Management Interfaces may lack proper security measures, such as strong authentication, encryption, or IP restrictions, allowing unauthorized users to potentially gain control over critical systems. Common issues include using default credentials, unencrypted communications, or exposing the interface to the public internet.
+> 不安全的管理接口是指用于管理服务器、应用程序、数据库或网络设备的管理接口中存在的漏洞。这些接口通常控制敏感设置，并拥有对系统配置的强大访问权限，使其成为攻击者的首要目标。
 
+> 不安全的管理接口可能缺乏适当的安全措施，如强身份验证、加密或 IP 限制，允许未经授权的用户通过它获得对关键系统的控制权。常见问题包括使用默认凭据、未加密的通信或将接口暴露在公共互联网上。
 
-## Summary
+## 概要 (Summary)
 
 * [Springboot-Actuator](#springboot-actuator)
     * [Remote Code Execution via /env](#remote-code-execution-via-env)

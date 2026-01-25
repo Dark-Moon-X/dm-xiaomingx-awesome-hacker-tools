@@ -1,8 +1,13 @@
-# DOM Clobbering
+<!--
+ * [业务问题]: DOM Clobbering 是一种利用 HTML 元素的 ID 或 name 属性覆盖全局变量的攻击技术。攻击者可以通过注入特定的 HTML 标签来污染 JavaScript 全局命名空间，导致脚本行为异常、绕过安全机制或执行 XSS 攻击。
+ * [实现逻辑]: 本文档详细介绍了 DOM Clobbering 的多种利用技术，包括覆盖 x.y.value、使用 ID 和 name 属性创建 DOM 集合、3层及更深层次的覆盖、forEach 覆盖（Chrome）、document.getElementById() 覆盖以及浏览器特定的绕过技术（Firefox, Chrome）。
+ -->
 
-> DOM Clobbering is a technique where global variables can be overwritten or "clobbered" by naming HTML elements with certain IDs or names. This can cause unexpected behavior in scripts and potentially lead to security vulnerabilities.
+# DOM Clobbering (DOM 覆盖攻击)
 
-## Summary
+> DOM Clobbering 是一种技术，通过使用特定的 ID 或 name 命名 HTML 元素，可以覆盖或"污染"全局变量。这可能导致脚本中出现意外行为，并可能导致安全漏洞。
+
+## 概要 (Summary)
 
 * [Methodology](#methodology)
 * [Lab](#lab)

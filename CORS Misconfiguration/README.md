@@ -1,9 +1,14 @@
-# CORS Misconfiguration
+<!--
+ * [业务问题]: CORS 配置错误是一种常见但高危的漏洞，允许政击者从恶意网站以用户身份发起跨域请求，窃取 API 密钥、用户数据或执行未经授权的操作。常见于 API 端点未正确验证 Origin 头的场景。
+ * [实现逻辑]: 本文档系统化地介绍了 CORS 配置错误的多种利用场景，包括 Origin 反射、Null Origin 利用、受信任域名 XSS、通配符 Origin 以及 Origin 扩展绕过等技术，并提供了完整的 PoC 代码和专业扫描工具（Corsy, CORScanner）。
+ -->
 
-> A site-wide CORS misconfiguration was in place for an API domain. This allowed an attacker to make cross origin requests on behalf of the user as the application did not whitelist the Origin header and had Access-Control-Allow-Credentials: true meaning we could make requests from our attacker’s site using the victim’s credentials. 
+# CORS Misconfiguration (CORS 配置错误)
+
+> 针对 API 域名存在站点级别的 CORS 配置错误。这允许攻击者以用户身份发起跨域请求，因为应用程序没有将 Origin 头加入白名单，并且设置了 Access-Control-Allow-Credentials: true，这意味着我们可以使用受害者的凭据从攻击者的网站发起请求。
 
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Requirements](#requirements)
@@ -26,16 +31,16 @@
 * [omranisecurity/CorsOne - Fast CORS Misconfiguration Discovery Tool](https://github.com/omranisecurity/CorsOne) 
 
 
-## Requirements
+## 利用要求 (Requirements)
 
-* BURP HEADER> `Origin: https://evil.com`
-* VICTIM HEADER> `Access-Control-Allow-Credential: true`
-* VICTIM HEADER> `Access-Control-Allow-Origin: https://evil.com` OR `Access-Control-Allow-Origin: null`
+* BURP 请求头> `Origin: https://evil.com`
+* 受害者响应头> `Access-Control-Allow-Credential: true`
+* 受害者响应头> `Access-Control-Allow-Origin: https://evil.com` 或 `Access-Control-Allow-Origin: null`
 
 
-## Methodology
+## 方法论 (Methodology)
 
-Usually you want to target an API endpoint. Use the following payload to exploit a CORS misconfiguration on target `https://victim.example.com/endpoint`.
+通常您希望针对 API 端点。使用以下 Payload 利用目标 `https://victim.example.com/endpoint` 上的 CORS 配置错误。
 
 ### Origin Reflection
 

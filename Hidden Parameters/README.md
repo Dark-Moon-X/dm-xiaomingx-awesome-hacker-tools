@@ -1,9 +1,13 @@
-# HTTP Hidden Parameters
+<!--
+ * [业务问题]: Web 应用程序通常具有未在用户界面中公开的隐藏或未记录的参数。发现这些参数可能揭示调试功能、管理接口或易受攻击的端点，导致未经授权的访问、信息泄露或权限提升。
+ * [实现逻辑]: 本文档介绍了发现隐藏参数的两种主要方法：暴力破解参数（使用 Arjun、x8、param-miner 等工具和专业字典）以及通过 Wayback Machine 和 JS 文件分析发现旧参数的方法。
+ -->
 
-> Web applications often have hidden or undocumented parameters that are not exposed in the user interface. Fuzzing can help discover these parameters, which might be vulnerable to various attacks.
+# HTTP Hidden Parameters (HTTP 隐藏参数发现)
 
+> Web 应用程序通常具有未在用户界面中公开的隐藏或未记录的参数。模糊测试可以帮助发现这些参数，这些参数可能容易受到各种攻击。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

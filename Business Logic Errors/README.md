@@ -1,9 +1,13 @@
-# Business Logic Errors
+<!--
+ * [业务问题]: 业务逻辑错误是利用应用程序的正常功能但以开发者未预料的方式使用，导致业务规则被绕过、财务损失或未经授权的操作。常见场景包括折扣码重复使用、负数数量购买、货币套利或高级功能未授权访问。
+ * [实现逻辑]: 本文档系统化地整理了业务逻辑测试的完整清单，包括评论功能测试、折扣码功能测试、配送费操纵、货币套利、高级功能利用、退款功能利用、购物车/愿望清单利用以及线程评论测试等多个维度的测试方法。
+ -->
 
-> Business logic errors, also known as business logic flaws, are a type of application vulnerability that stems from the application's business logic, which is the part of the program that deals with real-world business rules and processes. These rules could include things like pricing models, transaction limits, or the sequences of operations that need to be followed in a multi-step process.
+# Business Logic Errors (业务逻辑错误)
 
+> 业务逻辑错误，也称为业务逻辑缺陷，是一种源于应用程序业务逻辑的漏洞类型，业务逻辑是处理现实世界业务规则和流程的程序部分。这些规则可能包括定价模型、交易限制或多步骤流程中需要遵循的操作序列等内容。
 
-## Summary
+## 概要 (Summary)
 
 * [Methodology](#methodology)
     * [Review Feature Testing](#review-feature-testing)

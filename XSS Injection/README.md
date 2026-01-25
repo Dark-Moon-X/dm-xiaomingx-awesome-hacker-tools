@@ -1,9 +1,13 @@
-# Cross Site Scripting
+<!--
+ * [业务问题]: 跨站脚本攻击（XSS）是 Web 应用中极高频且危害巨大的安全漏洞。攻击者利用该漏洞向受害者的浏览器注入并执行恶意脚本，从而窃取敏感信息（如 Cookie、令牌）、重定向用户或进行钓鱼攻击。
+ * [实现逻辑]: 本文档全面梳理了针对不同上下文（HTML 标签、属性、JavaScript、SVG、Markdown 等）的 XSS 测试 Payload，涵盖了反射型、存储型和 DOM 型 XSS 的利用技巧，并提供了 WAF 绕过及盲注检测的实战指南。
+ -->
 
-> Cross-site scripting (XSS) is a type of computer security vulnerability typically found in web applications. XSS enables attackers to inject client-side scripts into web pages viewed by other users.
+# Cross Site Scripting (跨站脚本攻击)
 
+> 跨站脚本（XSS）是一种主要存在于 Web 应用程序中的计算机安全漏洞。XSS 使攻击者能够将客户端脚本注入到其他用户查看的网页中。
 
-## Summary
+## 概要 (Summary)
 
 - [Methodology](#methodology)
 - [Proof of Concept](#proof-of-concept)
@@ -43,11 +47,11 @@
 - [References](#references)
 
 
-## Methodology
+## 方法论 (Methodology)
 
-Cross-Site Scripting (XSS) is a type of computer security vulnerability typically found in web applications. XSS allows attackers to inject malicious code into a website, which is then executed in the browser of anyone who visits the site. This can allow attackers to steal sensitive information, such as user login credentials, or to perform other malicious actions.
+跨站脚本（XSS）是一种常见的 Web 应用程序漏洞。XSS 允许攻击者将恶意代码注入网站，随后该代码将在访问该网站的任何人的浏览器中执行。这可能使攻击者能够窃取敏感信息（如用户登录凭据）或执行其他恶意操作。
 
-There are 3 main types of XSS attacks:
+主要的 XSS 攻击类型有三种：
 
 * **Reflected XSS**: In a reflected XSS attack, the malicious code is embedded in a link that is sent to the victim. When the victim clicks on the link, the code is executed in their browser. For example, an attacker could create a link that contains malicious JavaScript, and send it to the victim in an email. When the victim clicks on the link, the JavaScript code is executed in their browser, allowing the attacker to perform various actions, such as stealing their login credentials.
 

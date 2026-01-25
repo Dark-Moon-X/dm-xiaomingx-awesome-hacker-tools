@@ -1,6 +1,13 @@
-# ORM Leak
+<!--
+ * [业务问题]: ORM 泄露（ORM Leak）是一种副作用泄露漏洞，攻击者利用 ORM 框架（如 Django, Prisma）的查询过滤功能，通过布尔推断或基于时间的攻击来提取数据库中的敏感信息（如密码哈希、重置 Token），而无需直接的 SQL 注入。
+ * [实现逻辑]: 本文档详细介绍了 ORM 泄露的原理和针对 Django、Prisma、Ransack 等流行框架的攻击方法，包括利用关系过滤（One-to-One, Many-to-Many）、ReDoS 报错注入以及使用工具（plormber）进行自动化利用。
+ -->
 
-An ORM leak vulnerability occurs when sensitive information, such as database structure or user data, is unintentionally exposed due to improper handling of ORM queries. This can happen if the application returns raw error messages, debug information, or allows attackers to manipulate queries in ways that reveal underlying data.
+# ORM Leak (ORM 信息泄露)
+
+> ORM 泄露漏洞发生在由于对 ORM 查询处理不当而无意中暴露敏感信息（如数据库结构或用户数据）时。如果应用程序返回原始错误消息、调试信息，或者允许攻击者以揭示底层数据的方式操纵查询，就可能发生这种情况。
+
+## 概要 (Summary)
 
 
 ## Summary

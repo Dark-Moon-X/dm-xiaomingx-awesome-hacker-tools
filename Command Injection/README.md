@@ -1,9 +1,13 @@
-# Command Injection
+<!--
+ * [业务问题]: 命令注入（Command Injection）是一种高危安全漏洞，攻击者通过在受影响的应用中注入恶意系统命令，可以直接在宿主机操作系统上以应用权限执行代码，导致服务器完全失控。
+ * [实现逻辑]: 本文档深入探讨了命令注入的触发机制，汇总了基础命令、多重命令链接（;, &&, ||, |, &）以及参数注入的利用方法，并提供了针对各种字符过滤和黑名单限制的详细绕过技术（如 IFS 变量、花括号扩展、环境变量切片等）。
+ -->
 
-> Command injection is a security vulnerability that allows an attacker to execute arbitrary commands inside a vulnerable application.
+# Command Injection (命令注入)
 
+> 命令注入是一种安全漏洞，允许攻击者在漏洞应用程序内部执行任意命令。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)
@@ -46,11 +50,11 @@
 * [projectdiscovery/interactsh](https://github.com/projectdiscovery/interactsh) - An OOB interaction gathering server and client library
 
 
-## Methodology
+## 方法论 (Methodology)
 
-Command injection, also known as shell injection, is a type of attack in which the attacker can execute arbitrary commands on the host operating system via a vulnerable application. This vulnerability can exist when an application passes unsafe user-supplied data (forms, cookies, HTTP headers, etc.) to a system shell. In this context, the system shell is a command-line interface that processes commands to be executed, typically on a Unix or Linux system.
+命令注入（也称为 Shell 注入）是一种攻击类型，攻击者可以通过漏洞应用程序在宿主机操作系统上执行任意命令。当应用程序将不安全的用户提交数据（表单、Cookie、HTTP 标头等）传递给系统 Shell 时，就可能存在此漏洞。在此上下文中，系统 Shell 是处理待执行命令的命令行界面，通常在 Unix 或 Linux 系统上。
 
-The danger of command injection is that it can allow an attacker to execute any command on the system, potentially leading to full system compromise.
+命令注入的危险在于它可能允许攻击者执行系统上的任何命令，从而可能导致系统完全沦陷。
 
 **Example of Command Injection with PHP**:    
 Suppose you have a PHP script that takes a user input to ping a specified IP address or domain:

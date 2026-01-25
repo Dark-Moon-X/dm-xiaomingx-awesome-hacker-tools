@@ -1,8 +1,13 @@
-# Vulnerability Title
+<!--
+ * [业务问题]: 漏洞标题 (Vulnerability Title)
+ * [实现逻辑]: 漏洞描述与参考文献
+ -->
 
-> Vulnerability description - reference
+# Vulnerability Title (漏洞标题)
 
-## Summary
+> 漏洞描述 - 参考 (Vulnerability description - reference)
+
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

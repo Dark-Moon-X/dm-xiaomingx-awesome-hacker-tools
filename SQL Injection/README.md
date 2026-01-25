@@ -1,9 +1,13 @@
-# SQL Injection
+<!--
+ * [业务问题]: SQL 注入（SQLi）是一种常见的安全漏洞，攻击者通过在应用程序的数据库查询中注入恶意 SQL 代码，干扰数据库的正常操作，从而实现未授权的数据访问、修改甚至接管整个数据库服务器。
+ * [实现逻辑]: 本文档详细记录了针对不同主流数据库（MySQL, MSSQL, Oracle, PostgreSQL 等）的 SQL 注入测试 Payload，涵盖了针对联合查询、基于错误、盲注（布尔和时间）以及带外数据传输（OOB）等多种注入技术及其 WAF 绕过方法。
+ -->
 
-> SQL Injection (SQLi)  is a type of security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. SQL Injection is one of the most common and severe types of web application vulnerabilities, enabling attackers to execute arbitrary SQL code on the database. This can lead to unauthorized data access, data manipulation, and, in some cases, full compromise of the database server.
+# SQL Injection (SQL 注入)
 
+> SQL Injection (SQLi) 是一种安全漏洞，允许攻击者干扰应用程序对其数据库进行的查询。它是最常见且最严重的 Web 应用程序漏洞之一，使攻击者能够在数据库上执行任意 SQL 代码。这可能导致未经授权的数据访问、数据操纵，在某些情况下，甚至会导致数据库服务器的完全沦陷。
 
-## Summary
+## 概要 (Summary)
 
 * [CheatSheets](#cheatsheets)
     * [MSSQL Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md)
@@ -45,9 +49,9 @@
 * [r0oth3x49/ghauri](https://github.com/r0oth3x49/ghauri) - An advanced cross-platform tool that automates the process of detecting and exploiting SQL injection security flaws
 
 
-## Entry Point Detection
+## 入口点检测 (Entry Point Detection)
 
-Detecting the entry point in SQL injection (SQLi) involves identifying locations in an application where user input is not properly sanitized before it is included in SQL queries.
+检测 SQL 注入（SQLi）的入口点涉及识别应用程序中用户输入未在包含到 SQL 查询之前得到妥善清理的位置。
 
 * **Error Messages**: Inputting special characters (e.g., a single quote ') into input fields might trigger SQL errors. If the application displays detailed error messages, it can indicate a potential SQL injection point.
     * Simple characters: `'`, `"`, `;`, `)` and `*`

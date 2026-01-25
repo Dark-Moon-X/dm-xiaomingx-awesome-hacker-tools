@@ -1,8 +1,13 @@
-# Dependency Confusion
+<!--
+ * [业务问题]: 依赖混淆（Dependency Confusion）是一种供应链攻击，攻击者通过在公共仓库（npm、pip、gem）中注册与企业内部私有包同名的恶意包，诱使安装脚本下载并执行恶意代码，导致远程代码执行或数据泄露。曾影响 Apple、Microsoft 等多家大型企业。
+ * [实现逻辑]: 本文档介绍了依赖混淆攻击的完整方法论，包括如何发现私有包名称、在公共仓库注册同名包以及等待企业系统自动安装的攻击流程，并提供了检测工具（confused）和真实案例（Alex Birsan 的 $130,000+ 漏洞赏金）。
+ -->
 
-> A dependency confusion attack or supply chain substitution attack occurs when a software installer script is tricked into pulling a malicious code file from a public repository instead of the intended file of the same name from an internal repository.
+# Dependency Confusion (依赖混淆 / 供应链替换攻击)
 
-## Summary
+> 依赖混淆攻击或供应链替换攻击发生在软件安装脚本被欺骗从公共仓库拉取恶意代码文件，而不是从内部仓库拉取同名的预期文件时。
+
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

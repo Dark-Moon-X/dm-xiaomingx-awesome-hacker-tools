@@ -1,9 +1,13 @@
-# XPATH Injection
+<!--
+ * [业务问题]: XPATH 注入是针对使用 XPath 查询 XML 数据库的应用的攻击手法。攻击者通过注入恶意 XPath 表达式绕过身份验证、提取敏感 XML 数据或执行未经授权的查询，导致数据泄露或访问控制绕过。
+ * [实现逻辑]: 本文档介绍了 XPATH 注入的基本 Payload（类似 SQL 注入）、盲注技术（字符串长度检测、字符提取）以及带外利用（OOB）方法，并提供了专业工具（xcat, xxxpwn, XMLCHOR）的使用指导。
+ -->
 
-> XPath Injection is an attack technique used to exploit applications that construct XPath (XML Path Language) queries from user-supplied input to query or navigate XML documents.
+# XPATH Injection (XPATH 注入)
 
+> XPath 注入是一种攻击技术，用于利用根据用户提供的输入构建 XPath（XML 路径语言）查询来查询或导航 XML 文档的应用程序。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

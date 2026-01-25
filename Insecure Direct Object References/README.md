@@ -1,9 +1,14 @@
-# Insecure Direct Object References
+<!--
+ * [业务问题]: 不安全的直接对象引用（IDOR）是一种访问控制漏洞，攻击者通过操纵 URL 或 API 请求中的参数（如用户 ID、订单号）直接访问或修改未经授权的资源，导致敏感数据泄露、账户接管或数据篡改。
+ * [实现逻辑]: 本文档系统化地整理了 IDOR 漏洞的多种利用场景，包括数字型参数递增、常见标识符猜测、弱伪随机数生成器、哈希参数破解、通配符参数利用等，并提供了实战技巧（如 HTTP 方法变换、参数污染）和真实案例。
+ -->
 
-> Insecure Direct Object References (IDOR) is a security vulnerability that occurs when an application allows users to directly access or modify objects (such as files, database records, or URLs) based on user-supplied input, without sufficient access controls. This means that if a user changes a parameter value (like an ID) in a URL or API request, they might be able to access or manipulate data that they aren’t authorized to see or modify.
+# Insecure Direct Object References (IDOR - 不安全的直接对象引用)
+
+> 不安全的直接对象引用（IDOR）是一种安全漏洞，当应用程序允许用户基于用户提供的输入直接访问或修改对象（如文件、数据库记录或 URL）而没有足够的访问控制时就会发生。这意味着如果用户更改 URL 或 API 请求中的参数值（如 ID），他们可能能够访问或操纵他们无权查看或修改的数据。
 
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)
@@ -24,9 +29,9 @@
 - [PortSwigger/BApp Store > Autorize](https://portswigger.net/bappstore/f9bbac8c4acf4aefa4d7dc92a991af2f)
 
 
-## Methodology
+## 方法论 (Methodology)
 
-IDOR stands for Insecure Direct Object Reference. It's a type of security vulnerability that arises when an application provides direct access to objects based on user-supplied input. As a result, attackers can bypass authorization and access resources in the system directly, potentially leading to unauthorized information disclosure, modification, or deletion.
+IDOR 代表不安全的直接对象引用。这是一种安全漏洞类型，当应用程序基于用户提供的输入提供对对象的直接访问时就会出现。因此，攻击者可以绕过授权并直接访问系统中的资源，可能导致未经授权的信息披露、修改或删除。
 
 **Example of IDOR**
 

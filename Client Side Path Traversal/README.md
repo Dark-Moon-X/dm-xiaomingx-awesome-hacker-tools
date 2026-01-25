@@ -1,13 +1,17 @@
-# Client Side Path Traversal
+<!--
+ * [业务问题]: 客户端路径遍历（CSPT）是一种利用前端 fetch 请求中的路径规范化漏洞，通过注入 ../ 序列将请求重定向到任意端点的攻击手法。由于浏览器自动携带 Cookie 和认证信息，可用于绕过 CSRF 保护、执行 XSS 或窃取敏感数据。
+ * [实现逻辑]: 本文档详细介绍了 CSPT 的两种主要利用方式（CSPT to XSS 和 CSPT to CSRF），展示了如何利用路径遍历绕过反 CSRF Token 和 SameSite=Lax 保护，并提供了真实案例（Rocket.Chat、Mattermost CVE、Grafana CVE）和专业工具（CSPTBurpExtension）的使用方法。
+ -->
 
-> Client-Side Path Traversal (CSPT), sometimes also referred to as "On-site Request Forgery," is a vulnerability that can be exploited as a tool for CSRF or XSS attacks.  
+# Client Side Path Traversal (客户端路径遍历)
 
-> It takes advantage of the client side's ability to make requests using fetch to a URL, where multiple "../" characters can be injected. After normalization, these characters redirect the request to a different URL, potentially leading to security breaches.  
+> 客户端路径遍历（CSPT），有时也称为"站内请求伪造"，是一种可以被利用为 CSRF 或 XSS 攻击工具的漏洞。
 
-> Since every request is initiated from within the frontend of the application, the browser automatically includes cookies and other authentication mechanisms, making them available for exploitation in these attacks.
+> 它利用客户端使用 fetch 向 URL 发起请求的能力，其中可以注入多个 "../" 字符。规范化后，这些字符会将请求重定向到不同的 URL，可能导致安全漏洞。
 
+> 由于每个请求都是从应用程序的前端内部发起的，浏览器会自动包含 Cookie 和其他身份验证机制，使它们可以在这些攻击中被利用。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

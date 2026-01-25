@@ -1,9 +1,13 @@
-# JWT - JSON Web Token
+<!--
+ * [业务问题]: JSON Web Token (JWT) 是现代 Web 应用中最常用的身份验证机制之一。JWT 漏洞可能导致身份验证绕过、权限提升、会话劫持或账户完全沦陷。常见问题包括弱密钥、算法混淆攻击和签名验证绕过。
+ * [实现逻辑]: 本文档全面介绍了 JWT 安全测试的完整方法论，包括 None 算法攻击、RS256 到 HS256 的密钥混淆、kid/jku 头部注入、弱密钥破解（Hashcat）以及公钥恢复等高级攻击技术，并提供了专业工具（jwt_tool, JOSEPH）的使用指导。
+ -->
 
-> JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed.
+# JWT - JSON Web Token (JSON Web 令牌)
 
+> JSON Web Token (JWT) 是一个开放标准（RFC 7519），它定义了一种紧凑且自包含的方式，用于在各方之间以 JSON 对象的形式安全地传输信息。该信息可以被验证和信任，因为它是数字签名的。
 
-## Summary
+## 概要 (Summary)
 
 - [Tools](#tools)
 - [JWT Format](#jwt-format)

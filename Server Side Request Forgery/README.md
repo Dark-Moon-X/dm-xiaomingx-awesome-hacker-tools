@@ -1,9 +1,13 @@
-# Server-Side Request Forgery
+<!--
+ * [业务问题]: 服务端请求伪造（SSRF）是一种严重的安全漏洞，攻击者可诱导受攻击的服务器发起非预期的内外网请求，从而导致探测内网资产、绕过防火墙、读取敏感文件或与内部服务交互。
+ * [实现逻辑]: 本文档全面记录了 SSRF 漏洞的各种触发场景和绕过技巧，包括本地主机绕过、WAF 过滤绕过、多种协议利用（gopher, dict, file 等），以及针对各云平台（AWS, GCP, Azure 等）元数据服务的特定攻击方法。
+ -->
 
-> Server Side Request Forgery or SSRF is a vulnerability in which an attacker forces a server to perform requests on their behalf.
+# Server-Side Request Forgery (SSRF - 服务端请求伪造)
 
+> 服务端请求伪造（SSRF）是一种漏洞，攻击者通过它能够强制服务器代表攻击者发起请求。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Payloads with localhost](#payloads-with-localhost)
@@ -72,9 +76,9 @@
 - [Horlad/r3dir](https://github.com/Horlad/r3dir) - a redirection service designed to help bypass SSRF filters that do not validate the redirect location. Intergrated with Burp with help of Hackvertor tags
 
 
-## Payloads with localhost
+## 使用 localhost 的 Payload (Payloads with localhost)
 
-* Using `localhost`
+* 使用 `localhost`
   ```powershell
   http://localhost:80
   http://localhost:443

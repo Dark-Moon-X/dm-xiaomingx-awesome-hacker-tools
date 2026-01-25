@@ -1,8 +1,13 @@
-# Mass Assignment
+<!--
+ * [业务问题]: 批量赋值（Mass Assignment）漏洞允许攻击者通过添加未授权的参数（如 isAdmin, role）来修改对象属性，导致权限提升、数据篡改或访问控制绕过。常见于使用 ORM 框架（Rails, Django, Laravel）的 Web 应用。
+ * [实现逻辑]: 本文档通过实际案例说明了批量赋值漏洞的原理，展示了攻击者如何通过在请求中添加 isAdmin 等参数来获取管理员权限，并提供了 PentesterAcademy 实验室链接和防护建议。
+ -->
 
-> A mass assignment attack is a security vulnerability that occurs when a web application automatically assigns user-supplied input values to properties or variables of a program object. This can become an issue if a user is able to modify attributes they should not have access to, like a user's permissions or an admin flag.
+# Mass Assignment (批量赋值)
 
-## Summary
+> 批量赋值攻击是一种安全漏洞，当 Web 应用程序自动将用户提供的输入值分配给程序对象的属性或变量时就会发生。如果用户能够修改他们不应该访问的属性（如用户权限或管理员标志），这就会成为一个问题。
+
+## 概要 (Summary)
 
 * [Methodology](#methodology)
 * [Labs](#labs)

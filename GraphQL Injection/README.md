@@ -1,9 +1,13 @@
-# GraphQL Injection
+<!--
+ * [业务问题]: GraphQL 注入是针对 GraphQL API 的攻击手法。攻击者通过内省查询（Introspection）提取完整的 API Schema、利用批量查询绕过速率限制、注入 SQL/NoSQL 语句或通过 Mutation 修改数据，导致敏感信息泄露、账户沦陷或数据篡改。
+ * [实现逻辑]: 本文档全面介绍了 GraphQL 安全测试的完整流程，包括端点发现、Introspection 查询、Schema 枚举、数据提取（edges/nodes, projections）、Mutation 利用、批量攻击（Batching）以及 SQL/NoSQL 注入等高级攻击技术，并提供了专业工具（GraphQLmap, InQL, GQLSpection）的使用指导。
+ -->
 
-> GraphQL is a query language for APIs and a runtime for fulfilling those queries with existing data. A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type
+# GraphQL Injection (GraphQL 注入)
 
+> GraphQL 是一种用于 API 的查询语言，也是一个用现有数据实现这些查询的运行时。GraphQL 服务通过定义类型和这些类型上的字段来创建，然后为每个类型上的每个字段提供函数。
 
-## Summary
+## 概要 (Summary)
 
 - [Tools](#tools)
 - [Enumeration](#enumeration)

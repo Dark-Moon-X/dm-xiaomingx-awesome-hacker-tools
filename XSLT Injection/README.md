@@ -1,6 +1,13 @@
-# XSLT Injection
+<!--
+ * [业务问题]: XSLT 注入发生在使用未经验证的 XSL 样式表处理 XML 数据时。攻击者可以利用 XSLT 的功能（如 document(), system-property(), php:function()）来读取任意文件、执行远程代码（RCE）或进行端口扫描。
+ * [实现逻辑]: 本文档全面介绍了 XSLT 注入的探测方法（指纹识别）、外部实体攻击、文件读取与 SSRF 利用、EXSLT 扩展写文件，以及针对 PHP、Java、.NET 等不同语言环境的远程代码执行（RCE）Payload。
+ -->
 
-> Processing an un-validated XSL stylesheet can allow an attacker to change the structure and contents of the resultant XML, include arbitrary files from the file system, or execute arbitrary code
+# XSLT Injection (XSLT 注入)
+
+> 处理未经验证的 XSL 样式表可能允许攻击者更改生成 XML 的结构和内容，包含来自文件系统的任意文件，或执行任意代码。
+
+## 概要 (Summary)
 
 
 ## Summary

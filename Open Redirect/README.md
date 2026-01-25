@@ -1,9 +1,14 @@
-# Open URL Redirection
+<!--
+ * [业务问题]: 开放重定向（Open Redirect）漏洞允许攻击者操纵 URL 参数将用户重定向到恶意网站。由于重定向 URL 中包含受信任的域名，攻击者可以利用此漏洞发起高可信度的钓鱼攻击、窃取会话令牌或绕过访问控制机制。
+ * [实现逻辑]: 本文档详细介绍了开放重定向的多种绕过技术，包括白名单域名绕过、CRLF 注入、特殊字符编码（如 %E3%80%82、@、?）、参数污染以及 Unicode 规范化利用等，并提供了常见的注入参数列表和实战案例。
+ -->
 
-> Un-validated redirects and forwards are possible when a web application accepts untrusted input that could cause the web application to redirect the request to a URL contained within untrusted input. By modifying untrusted URL input to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts may have a more trustworthy appearance. Un-validated redirect and forward attacks can also be used to maliciously craft a URL that would pass the application’s access control check and then forward the attacker to privileged functions that they would normally not be able to access.
+# Open URL Redirection (开放 URL 重定向)
+
+> 当 Web 应用程序接受可能导致应用程序将请求重定向到不受信任输入中包含的 URL 的不受信任输入时，就可能发生未经验证的重定向和转发。通过将不受信任的 URL 输入修改为恶意站点，攻击者可能成功发起钓鱼诈骗并窃取用户凭据。由于修改后链接中的服务器名称与原始站点相同，钓鱼尝试可能具有更可信的外观。未经验证的重定向和转发攻击还可用于恶意构造一个 URL，该 URL 将通过应用程序的访问控制检查，然后将攻击者转发到他们通常无法访问的特权功能。
 
 
-## Summary
+## 概要 (Summary)
 
 * [Methodology](#methodology)
     * [HTTP Redirection Status Code](#http-redirection-status-code)
@@ -14,11 +19,11 @@
 * [References](#references)
 
 
-## Methodology
+## 方法论 (Methodology)
 
-An open redirect vulnerability occurs when a web application or server uses unvalidated, user-supplied input to redirect users to other sites. This can allow an attacker to craft a link to the vulnerable site which redirects to a malicious site of their choosing.
+当 Web 应用程序或服务器使用未经验证的用户提供的输入将用户重定向到其他站点时，就会发生开放重定向漏洞。这可以允许攻击者制作一个指向易受攻击站点的链接，该链接重定向到他们选择的恶意站点。
 
-Attackers can leverage this vulnerability in phishing campaigns, session theft, or forcing a user to perform an action without their consent.
+攻击者可以在钓鱼活动、会话窃取或强制用户在未经同意的情况下执行操作中利用此漏洞。
 
 Consider this example:
 Your web application has a feature that allows users to click on a link and be automatically redirected to a saved preferred homepage. This might be implemented like so:

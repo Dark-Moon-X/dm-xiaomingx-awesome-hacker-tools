@@ -1,11 +1,15 @@
-# Headless Browser
+<!--
+ * [业务问题]: 无头浏览器（Headless Browser）在自动化测试和爬虫中广泛使用，但如果配置不当（如开启 remote-debugging-port）可能导致本地文件读取、Cookie 窃取、端口扫描或远程控制浏览器会话等安全风险。
+ * [实现逻辑]: 本文档详细介绍了无头浏览器的多种攻击技术，包括本地文件读取（JavaScript 重定向、Iframe）、调试端口利用（连接 chrome://inspect、窃取 Cookie、端口扫描、UUID 泄露）、网络攻击（端口扫描、DNS 重绑定）以及专业工具（WhiteChocolateMacademiaNut）的使用方法。
+ -->
 
-> A headless browser is a web browser without a graphical user interface. It works just like a regular browser, such as Chrome or Firefox, by interpreting HTML, CSS, and JavaScript, but it does so in the background, without displaying any visuals.
+# Headless Browser (无头浏览器安全)
 
-> Headless browsers are primarily used for automated tasks, such as web scraping, testing, and running scripts. They are particularly useful in situations where a full-fledged browser is not needed, or where resources (like memory or CPU) are limited.
+> 无头浏览器是没有图形用户界面的 Web 浏览器。它的工作方式与常规浏览器（如 Chrome 或 Firefox）一样，通过解释 HTML、CSS 和 JavaScript，但它在后台执行，不显示任何视觉效果。
 
+> 无头浏览器主要用于自动化任务，如网页抓取、测试和运行脚本。它们在不需要完整浏览器或资源（如内存或 CPU）有限的情况下特别有用。
 
-## Summary
+## 概要 (Summary)
 
 * [Headless Commands](#headless-commands)
 * [Local File Read](#local-file-read)

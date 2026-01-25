@@ -1,6 +1,13 @@
-# Server Side Include Injection
+<!--
+ * [业务问题]: 服务器端包含注入（SSI Injection）利用 Web 服务器解析 SSI 指令的功能。如果用户输入未被净化就嵌入到页面中，攻击者可以注入 SSI 指令来执行系统命令、访问文件系统或打印环境变量，导致服务器完全沦陷。同时也涵盖了边缘侧包含（ESI）注入。
+ * [实现逻辑]: 本文档详细列出了 SSI 和 ESI 的注入 Payload 表，包括打印变量、包含文件、执行命令（反弹 Shell）以及 ESI 特有的攻击向量（XSS、Cookie 窃取、调试信息泄露）。
+ -->
 
-> Server Side Includes (SSI) are directives that are placed in HTML pages and evaluated on the server while the pages are being served. They let you add dynamically generated content to an existing HTML page, without having to serve the entire page via a CGI program, or other dynamic technology.
+# Server Side Include Injection (服务端包含注入 / SSI 注入)
+
+> 服务器端包含（SSI）是放置在 HTML 页面中的指令，在页面被服务时在服务器上进行评估。它们允许您将动态生成的内容添加到现有的 HTML 页面中，而无需通过 CGI 程序或其他动态技术服务整个页面。
+
+## 概要 (Summary)
 
 
 ## Summary

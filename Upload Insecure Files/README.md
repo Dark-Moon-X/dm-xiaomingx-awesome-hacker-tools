@@ -1,9 +1,13 @@
-# Upload Insecure Files
+<!--
+ * [业务问题]: 文件上传漏洞是 Web 应用中最危险的漏洞之一，攻击者可以上传恶意文件（Webshell、配置文件、恶意图片）直接导致远程代码执行、服务器完全沦陷或数据泄露。常见于缺乏文件类型验证、扩展名过滤不严或文件内容检查缺失的场景。
+ * [实现逻辑]: 本文档全面介绍了文件上传攻击的完整方法论，包括默认扩展名列表（PHP, ASP, JSP）、上传绕过技巧（双扩展名、空字节、MIME 类型伪造、Magic Bytes）、文件名漏洞利用、图片压缩攻击、配置文件利用（.htaccess, web.config）以及 ImageMagick/FFmpeg 的 CVE 利用。
+ -->
 
-> Uploaded files may pose a significant risk if not handled correctly. A remote attacker could send a multipart/form-data POST request with a specially-crafted filename or mime type and execute arbitrary code.
+# Upload Insecure Files (不安全文件上传)
 
+> 上传的文件如果处理不当可能会带来重大风险。远程攻击者可以发送带有精心构造的文件名或 MIME 类型的 multipart/form-data POST 请求，并执行任意代码。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

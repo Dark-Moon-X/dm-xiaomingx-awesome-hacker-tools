@@ -1,9 +1,13 @@
-# Web Sockets
+<!--
+ * [业务问题]: WebSocket 漏洞允许攻击者通过操纵 WebSocket 消息、劫持 WebSocket 连接或利用跨站 WebSocket 劫持（CSWSH）来窃取敏感数据、执行未经授权的操作或绕过安全控制。常见于实时聊天、在线游戏和金融交易平台。
+ * [实现逻辑]: 本文档详细介绍了 WebSocket 安全测试的方法，包括使用 wsrepl 和 ws-harness.py 工具进行消息操纵、跨站 WebSocket 劫持（CSWSH）攻击技术以及自动化测试插件的编写方法。
+ -->
 
-> WebSocket is a communication protocol that provides full-duplex communication channels over a single, long-lived connection. This enables real-time, bi-directional communication between clients (typically web browsers) and servers through a persistent connection. WebSockets are commonly used for web applications that require frequent, low-latency updates, such as live chat applications, online gaming, real-time notifications, and financial trading platforms.
+# Web Sockets (WebSocket 漏洞)
 
+> WebSocket 是一种通信协议，通过单个长期连接提供全双工通信通道。这使得客户端（通常是 Web 浏览器）和服务器之间可以通过持久连接进行实时、双向通信。WebSocket 通常用于需要频繁、低延迟更新的 Web 应用程序，如实时聊天应用、在线游戏、实时通知和金融交易平台。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

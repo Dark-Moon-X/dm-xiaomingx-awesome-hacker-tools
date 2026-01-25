@@ -1,9 +1,13 @@
-# SAML Injection
+<!--
+ * [业务问题]: SAML（安全断言标记语言）注入是针对企业级 SSO 单点登录系统的高危漏洞，攻击者通过操纵 SAML 断言、剥离签名、利用 XML 签名包装攻击或注入 XXE/XSLT 可以绕过身份验证、伪造用户身份或执行远程代码，导致整个企业系统沦陷。
+ * [实现逻辑]: 本文档全面介绍了 SAML 安全测试的完整方法论，包括无效签名检测、签名剥离攻击、XML 签名包装攻击（XSW1-8）、XML 注释处理漏洞、XML 外部实体注入以及 XSLT 转换攻击等高级技术，并提供了专业工具（SAMLRaider, ZAP SAML）的使用指导。
+ -->
 
-> SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between parties, in particular, between an identity provider and a service provider. While SAML is widely used to facilitate single sign-on (SSO) and other federated authentication scenarios, improper implementation or misconfiguration can expose systems to various vulnerabilities.
+# SAML Injection (SAML 注入)
 
+> SAML（安全断言标记语言）是一个开放标准，用于在各方之间交换身份验证和授权数据，特别是在身份提供者和服务提供者之间。虽然 SAML 广泛用于促进单点登录（SSO）和其他联合身份验证场景，但不当的实现或配置可能会使系统暴露于各种漏洞。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

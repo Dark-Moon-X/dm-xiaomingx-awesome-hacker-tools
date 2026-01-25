@@ -1,9 +1,13 @@
-# OAuth Misconfiguration
+<!--
+ * [业务问题]: OAuth 配置错误是现代 Web 应用中的高危漏洞，攻击者可以通过操纵 redirect_uri、窃取 access token、利用 CSRF 或绕过状态验证来劫持用户账户、获取敏感数据或执行未经授权的操作。常见于 SSO 单点登录和第三方授权场景。
+ * [实现逻辑]: 本文档详细介绍了 OAuth 实现中的多种安全缺陷，包括通过 Referer 头窃取 Token、redirect_uri 劫持、XSS 执行、私钥泄露、授权码重用以及 CSRF 攻击等，并提供了真实案例和 PortSwigger 实验室链接。
+ -->
 
-> OAuth is a widely-used authorization framework that allows third-party applications to access user data without exposing user credentials. However, improper configuration and implementation of OAuth can lead to severe security vulnerabilities. This document explores common OAuth misconfigurations, potential attack vectors, and best practices for mitigating these risks. 
+# OAuth Misconfiguration (OAuth 配置错误)
 
+> OAuth 是一个广泛使用的授权框架，允许第三方应用程序在不暴露用户凭据的情况下访问用户数据。然而，OAuth 的不当配置和实现可能导致严重的安全漏洞。本文档探讨了常见的 OAuth 配置错误、潜在的攻击向量以及缓解这些风险的最佳实践。
 
-## Summary
+## 概要 (Summary)
 
 - [Stealing OAuth Token via referer](#stealing-oauth-token-via-referer)
 - [Grabbing OAuth Token via redirect_uri](#grabbing-oauth-token-via-redirect---uri)

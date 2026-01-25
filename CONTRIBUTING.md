@@ -28,20 +28,27 @@ Every pull request will be checked with `markdownlint` to ensure consistent writ
 docker run -v $PWD:/workdir davidanson/markdownlint-cli2:v0.15.0 "**/*.md" --config .github/.markdownlint.json --fix
 ```
 
-## Techniques Folder
+Every section should contains the following files, you can use the `_template_vuln` folder to create a new technique folder. 
 
-Every section should contains the following files, you can use the `_template_vuln` folder to create a new technique folder:
+**特别要求：** 所有新增或修改的内容必须包含中文注释，并符合“安全研究专家”的角色规范。
 
-- **README.md**: vulnerability description and how to exploit it, including several payloads, more below
-- **Intruder**: a set of files to give to Burp Intruder
-- **Images**: pictures for the README.md
-- **Files**: some files referenced in the README.md
+- **README.md**: 漏洞描述以及如何利用它，包括若干 Payload。
+    - **必须在文件顶部包含业务溯源注释：**
+      ```markdown
+      <!--
+       * [业务问题]: 描述该代码/Payload集解决的具体业务需求或功能点。
+       * [实现逻辑]: 简述核心代码逻辑、调用链路或使用的关键技术栈。
+      -->
+      ```
+- **Intruder**: 为 Burp Intruder 提供的一组文件
+- **Images**: README.md 使用的图片
+- **Files**: README.md 引用的文件
 
-## README.md Format
+## README.md 格式规范
 
-Use the example folder [_template_vuln/](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/_template_vuln/) to create a new vulnerability document. The main page is [README.md](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/_template_vuln/README.md). It is organized with sections for a title and description of the vulnerability, along with a summary table of contents linking to the main sections of the document.
+使用示例文件夹 [_template_vuln/](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/_template_vuln/) 创建新的漏洞文档。主页面是 [README.md](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/_template_vuln/README.md)。它按章节组织，包括漏洞标题、描述以及链接到文档主要部分的目录摘要。
 
-- **Tools**: Lists relevant tools with links to their repositories and brief descriptions.
-- **Methodology**: Provides a quick overview of the approach used, with code snippets to demonstrate exploitation steps.
-- **Labs**: References online platforms where similar vulnerabilities can be practiced, each with a link to the corresponding lab.
-- **References**: Lists external resources, such as blog posts or articles, providing additional context or case studies related to the vulnerability.
+- **工具 (Tools)**: 列出相关工具，并附上仓库链接和简要描述。
+- **方法论 (Methodology)**: 提供所用方法的快速概述，并附上代码片段演示利用步骤。
+- **实验室 (Labs)**: 引用可以练习类似漏洞的在线平台。
+- **参考资料 (References)**: 列出外部资源，如博客文章或文章，提供与漏洞相关的附加背景或案例研究。

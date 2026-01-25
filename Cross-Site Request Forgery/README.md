@@ -1,9 +1,13 @@
-# Cross-Site Request Forgery
+<!--
+ * [业务问题]: 跨站请求伪造（CSRF）是一种攻击手法，攻击者利用用户已登录的身份，诱使用户在不知情的情况下执行非预期的状态变更操作（如转账、修改密码、授权第三方应用），从而导致账户沦陷或数据篡改。
+ * [实现逻辑]: 本文档系统化地整理了 CSRF 攻击的多种 Payload 形式，包括 HTML GET/POST、自动提交表单、文件上传、JSON 请求（Simple 和 Complex Request）等，并提供了完整的攻击流程图和实战案例。
+ -->
 
-> Cross-Site Request Forgery (CSRF/XSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated. CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request. - OWASP
+# Cross-Site Request Forgery (CSRF - 跨站请求伪造)
 
+> 跨站请求伪造（CSRF/XSRF）是一种攻击，强制最终用户在当前已认证的 Web 应用程序上执行非预期操作。CSRF 攻击专门针对状态变更请求，而不是数据窃取，因为攻击者无法看到伪造请求的响应。—— OWASP
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)
@@ -25,13 +29,13 @@
 * [0xInfection/XSRFProbe](https://github.com/0xInfection/XSRFProbe) - The Prime Cross Site Request Forgery Audit and Exploitation Toolkit.
 
 
-## Methodology
+## 方法论 (Methodology)
 
 ![CSRF_cheatsheet](https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Cross-Site%20Request%20Forgery/Images/CSRF-CheatSheet.png)
 
-## Payloads
+## Payload 示例
 
-When you are logged in to a certain site, you typically have a session. The identifier of that session is stored in a cookie in your browser, and is sent with every request to that site. Even if some other site triggers a request, the cookie is sent along with the request and the request is handled as if the logged in user performed it.
+当您登录到某个网站时，通常会有一个会话。该会话的标识符存储在浏览器的 Cookie 中，并随每个请求发送到该网站。即使其他网站触发了请求，Cookie 也会随请求一起发送，并且该请求会被处理，就像是已登录用户执行了该操作一样。
 
 
 ### HTML GET - Requiring User Interaction

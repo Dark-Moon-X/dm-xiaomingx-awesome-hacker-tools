@@ -1,9 +1,13 @@
-# Request Smuggling
+<!--
+ * [业务问题]: HTTP 请求走私（Request Smuggling）是一种高危漏洞，攻击者利用前端和后端服务器对 HTTP 请求边界解析的差异，干扰其他用户的请求/响应、绕过安全控制、窃取敏感数据或执行缓存投毒攻击。常见于使用反向代理或负载均衡器的架构。
+ * [实现逻辑]: 本文档系统化地介绍了 HTTP 请求走私的三种主要类型（CL.TE, TE.CL, TE.TE）、HTTP/2 请求走私技术以及客户端去同步（Client-Side Desync）攻击，并提供了专业工具（HTTP Request Smuggler, Smuggler）的使用方法和完整的 Payload 示例。
+ -->
 
-> HTTP Request smuggling occurs when multiple "things" process a request, but differ on how they determine where the request starts/ends. This disagreement can be used to interfere with another user's request/response or to bypass security controls. It normally occurs due to prioritising different HTTP headers (Content-Length vs Transfer-Encoding), differences in handling malformed headers (eg whether to ignore headers with unexpected whitespace), due to downgrading requests from a newer protocol, or due to differences in when a partial request has timed out and should be discarded.
+# Request Smuggling (HTTP 请求走私)
 
+> HTTP 请求走私发生在多个"组件"处理请求时，但在确定请求开始/结束位置上存在分歧。这种分歧可用于干扰其他用户的请求/响应或绕过安全控制。它通常由于优先处理不同的 HTTP 头（Content-Length vs Transfer-Encoding）、处理格式错误头的差异（例如是否忽略带有意外空格的头）、从较新协议降级请求或部分请求超时应被丢弃的时间差异而发生。
 
-## Summary
+## 概要 (Summary)
 
 * [Tools](#tools)
 * [Methodology](#methodology)

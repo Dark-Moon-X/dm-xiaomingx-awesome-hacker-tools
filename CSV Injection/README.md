@@ -1,9 +1,13 @@
-# CSV Injection
+<!--
+ * [业务问题]: CSV 注入是一种利用 Excel/LibreOffice 等电子表格软件的公式执行功能的攻击手法。攻击者通过在 CSV 导出功能中注入恶意公式（DDE, =cmd），可以在用户打开文件时执行任意命令，导致远程代码执行、数据窃取或系统沦陷。
+ * [实现逻辑]: 本文档详细介绍了 CSV 注入的多种 Payload 形式，包括使用 DDE 执行 calc、PowerShell 下载执行、前缀混淆、使用 rundll32 以及空字符绕过过滤器等技术，并说明了公式起始符号（=, +, -, @）的使用方法。
+ -->
 
-> Many web applications allow the user to download content such as templates for invoices or user settings to a CSV file. Many users choose to open the CSV file in either Excel, Libre Office or Open Office. When a web application does not properly validate the contents of the CSV file, it could lead to contents of a cell or many cells being executed.
+# CSV Injection (CSV 注入)
 
+> 许多 Web 应用程序允许用户将内容（如发票模板或用户设置）下载到 CSV 文件。许多用户选择在 Excel、Libre Office 或 Open Office 中打开 CSV 文件。当 Web 应用程序没有正确验证 CSV 文件的内容时，可能导致单元格或多个单元格的内容被执行。
 
-## Summary
+## 概要 (Summary)
 
 * [Methodology](#methodology)
 * [References](#references)
