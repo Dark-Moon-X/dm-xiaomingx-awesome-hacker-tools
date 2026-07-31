@@ -9,6 +9,7 @@
 
 欢迎大家贡献自己的 Payload 和技术来完善这个项目！我们热烈欢迎 Pull Request 的加入 :heart:
 
+- [Dark-Moon](https://github.com/ASCIT31/Dark-Moon)：开源自托管的自主式 AI 渗透测试平台，MCP 编排侦察/利用/报告智能体，覆盖 Web/API/AD/Kubernetes，本地隐私令牌化。
 # 如果你对网络安全感兴趣，如下开源代码不容错过：
  - **Rust 实现的端口扫描器**：高效稳定的探测工具。
    - [RustProxyHunter](https://github.com/XiaomingX/RustProxyHunter)
